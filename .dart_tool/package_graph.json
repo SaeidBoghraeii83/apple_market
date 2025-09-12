@@ -15,6 +15,7 @@
         "equatable",
         "flutter",
         "flutter_bloc",
+        "flutter_screenutil",
         "get_it",
         "smooth_page_indicator"
       ],
@@ -114,6 +115,13 @@
       "name": "dartz",
       "version": "0.10.1",
       "dependencies": []
+    },
+    {
+      "name": "flutter_screenutil",
+      "version": "5.9.3",
+      "dependencies": [
+        "flutter"
+      ]
     },
     {
       "name": "smooth_page_indicator",
