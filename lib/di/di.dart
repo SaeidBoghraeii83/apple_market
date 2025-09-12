@@ -1,7 +1,9 @@
 import 'package:apple_market/data/datasource/banner_data_source.dart';
 import 'package:apple_market/data/datasource/category_data_source.dart';
+import 'package:apple_market/data/datasource/product_data_source.dart';
 import 'package:apple_market/repository/banner_repository.dart';
 import 'package:apple_market/repository/category_repository.dart';
+import 'package:apple_market/repository/product_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -17,10 +19,10 @@ Future<void> getItInit() async {
   locator.registerFactory<ICategoryDataSource>(
     () => CategoryRemoteDataSource(),
   );
-  //locator.registerFactory<IProductDataSource>(() => ProductRemoteDataSource());
+  locator.registerFactory<IProductDataSource>(() => ProductRemoteDataSource());
 
   // repository
   locator.registerFactory<IBannerRepository>(() => BannerRepository());
   locator.registerFactory<ICategoryRepository>(() => CategoryRepository());
-  //locator.registerFactory<IProductRepository>(() => ProductRemoteRepository());
+  locator.registerFactory<IProductRepository>(() => ProductRemoteRepository());
 }
