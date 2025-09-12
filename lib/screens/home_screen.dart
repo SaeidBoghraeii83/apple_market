@@ -3,6 +3,7 @@ import 'package:apple_market/bloc/home_bloc/home_event.dart';
 import 'package:apple_market/bloc/home_bloc/home_state.dart';
 import 'package:apple_market/widget/banner_slider.dart';
 import 'package:apple_market/widget/category_item.dart';
+import 'package:apple_market/widget/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: _getBestSellerProductText(),
                     ),
                   ),
-                  /*
+
                   state.responseProductBestSeller.fold(
                     (error) {
                       return SliverToBoxAdapter(child: Text(error));
@@ -122,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
-                  */
+
                   SliverPadding(
                     padding: EdgeInsetsGeometry.symmetric(
                       horizontal: 15.w,
