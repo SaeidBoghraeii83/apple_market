@@ -2,18 +2,19 @@ import 'package:apple_market/bloc/home_bloc/category_bloc/category_bloc.dart';
 import 'package:apple_market/bloc/home_bloc/home_bloc.dart';
 import 'package:apple_market/screens/category_screen.dart';
 import 'package:apple_market/screens/home_screen.dart';
+import 'package:apple_market/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Main_Screen extends StatefulWidget {
-  const Main_Screen({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<Main_Screen> createState() => _Main_ScreenState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _Main_ScreenState extends State<Main_Screen> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedBottomNavigationItem = 3;
   @override
   Widget build(BuildContext context) {
@@ -80,8 +81,7 @@ class _Main_ScreenState extends State<Main_Screen> {
 
   List<Widget> getLayout() {
     return <Widget>[
-      BlocProvider(create: (context) => HomeBloc(), child: HomeScreen()),
-
+      ProfileScreen(),
       BlocProvider(create: (context) => HomeBloc(), child: HomeScreen()),
       BlocProvider(
         create: (context) => CategoryBloc(),

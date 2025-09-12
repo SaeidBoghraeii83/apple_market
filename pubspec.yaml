@@ -87,41 +87,41 @@ flutter:
   fonts:
     - family: GR
       fonts:
-        - asset: assets/fonts/GilroyRegular.ttf
+        - asset: fonts/GilroyRegular.ttf
           weight: 400
 
     - family: GM
       fonts:
-        - asset: assets/fonts/GilroyMedium.ttf
+        - asset: fonts/GilroyMedium.ttf
           weight: 500
 
     - family: GB
       fonts:
-        - asset: assets/fonts/GilroyBold.ttf
+        - asset: fonts/GilroyBold.ttf
           weight: 700
 
     - family: GEB
       fonts:
-        - asset: assets/fonts/GilroyExtraBold.ttf
+        - asset: fonts/GilroyExtraBold.ttf
           weight: 800
 
     - family: GH
       fonts:
-        - asset: assets/fonts/GilroyHeavy.ttf
+        - asset: fonts/GilroyHeavy.ttf
           weight: 900
 
     - family: SM
       fonts:
-        - asset: assets/fonts/ShabnamMedium.ttf
+        - asset: fonts/ShabnamMedium.ttf
           weight: 500
 
     - family: SB
       fonts:
-        - asset: assets/fonts/ShabnamBold.ttf
+        - asset: fonts/ShabnamBold.ttf
           weight: 700
 
 
     - family: dana
       fonts:
-        - asset: assets/fonts/dana.ttf
+        - asset: fonts/dana.ttf
           weight: 500
