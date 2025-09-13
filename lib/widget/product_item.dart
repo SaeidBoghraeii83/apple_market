@@ -1,6 +1,9 @@
+import 'package:apple_market/bloc/product_bloc/product_bloc.dart';
 import 'package:apple_market/model/product.dart';
+import 'package:apple_market/screens/detail_screen.dart';
 import 'package:apple_market/widget/cashed_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductItem extends StatelessWidget {
@@ -24,78 +27,90 @@ class ProductItem extends StatelessWidget {
                   height: 180.h,
                   child: Column(
                     children: [
-                      Container(
-                        width: 150.w,
-                        height: 130.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15.r),
-                            topRight: Radius.circular(15.r),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => BlocProvider(
+                                create: (context) => ProductBloc(),
+                                child: DetailScreen(),
+                              ),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 150.w,
+                          height: 130.h,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15.r),
+                              topRight: Radius.circular(15.r),
+                            ),
                           ),
-                        ),
-                        child: Stack(
-                          alignment: AlignmentGeometry.topCenter,
-                          children: [
-                            Positioned(
-                              top: 5,
-                              child: SizedBox(
-                                height: 100.h,
-                                width: 90.w,
-                                child: CashedImage(
-                                  imageUrl: listProduct[index].thumbnail,
-                                  fit: BoxFit.contain,
+                          child: Stack(
+                            alignment: AlignmentGeometry.topCenter,
+                            children: [
+                              Positioned(
+                                top: 5,
+                                child: SizedBox(
+                                  height: 100.h,
+                                  width: 90.w,
+                                  child: CashedImage(
+                                    imageUrl: listProduct[index].thumbnail,
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 5.h,
-                              right: 10.w,
-                              child: Image.asset(
-                                'images/active_fav_product.png',
+                              Positioned(
+                                top: 5.h,
+                                right: 10.w,
+                                child: Image.asset(
+                                  'images/active_fav_product.png',
+                                ),
                               ),
-                            ),
 
-                            Positioned(
-                              bottom: 20.h,
-                              left: 5.w,
-                              child: Container(
-                                width: 26.w,
-                                height: 14.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.circular(5.r),
-                                ),
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  '${listProduct[index].persent!.round().toString()} ٪',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: 'SM',
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.bold,
+                              Positioned(
+                                bottom: 20.h,
+                                left: 5.w,
+                                child: Container(
+                                  width: 26.w,
+                                  height: 14.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius: BorderRadius.circular(5.r),
+                                  ),
+                                  child: Text(
+                                    textAlign: TextAlign.center,
+                                    '${listProduct[index].persent!.round().toString()} ٪',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'SM',
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              right: 14.w,
-                              bottom: 2.h,
-                              child: Directionality(
-                                textDirection: TextDirection.rtl,
-                                child: Text(
-                                  maxLines: 1,
-                                  listProduct[index].name,
-                                  style: TextStyle(
-                                    overflow: TextOverflow.clip,
-                                    fontFamily: 'SM',
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w700,
+                              Positioned(
+                                right: 14.w,
+                                bottom: 2.h,
+                                child: Directionality(
+                                  textDirection: TextDirection.rtl,
+                                  child: Text(
+                                    maxLines: 1,
+                                    listProduct[index].name,
+                                    style: TextStyle(
+                                      overflow: TextOverflow.clip,
+                                      fontFamily: 'SM',
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       Container(

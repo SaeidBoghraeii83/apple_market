@@ -62,8 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               );
-            }
-            if (state is HomeResponseState) {
+            } else if (state is HomeResponseState) {
               return CustomScrollView(
                 slivers: [
                   SliverPadding(
@@ -146,6 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               );
             }
+
             return Text('saeed');
           },
         ),
