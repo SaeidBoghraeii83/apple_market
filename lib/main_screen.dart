@@ -82,7 +82,10 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> getLayout() {
     return <Widget>[
-      DetailScreen(),
+      BlocProvider(
+        create: (context) => CategoryBloc(),
+        child: CategoryScreen(),
+      ),
       ProfileScreen(),
       BlocProvider(create: (context) => HomeBloc(), child: HomeScreen()),
       BlocProvider(
