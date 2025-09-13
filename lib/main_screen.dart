@@ -1,6 +1,7 @@
-import 'package:apple_market/bloc/home_bloc/category_bloc/category_bloc.dart';
+import 'package:apple_market/bloc/category_bloc/category_bloc.dart';
 import 'package:apple_market/bloc/home_bloc/home_bloc.dart';
 import 'package:apple_market/screens/category_screen.dart';
+import 'package:apple_market/screens/detail_screen.dart';
 import 'package:apple_market/screens/home_screen.dart';
 import 'package:apple_market/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -81,14 +82,13 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> getLayout() {
     return <Widget>[
+      DetailScreen(),
       ProfileScreen(),
       BlocProvider(create: (context) => HomeBloc(), child: HomeScreen()),
       BlocProvider(
         create: (context) => CategoryBloc(),
         child: CategoryScreen(),
       ),
-
-      BlocProvider(create: (context) => HomeBloc(), child: HomeScreen()),
     ];
   }
 }
