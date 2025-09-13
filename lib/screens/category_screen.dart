@@ -1,6 +1,6 @@
-import 'package:apple_market/bloc/home_bloc/category_bloc/category_bloc.dart';
-import 'package:apple_market/bloc/home_bloc/category_bloc/category_event.dart';
-import 'package:apple_market/bloc/home_bloc/category_bloc/category_state.dart';
+import 'package:apple_market/bloc/category_bloc/category_bloc.dart';
+import 'package:apple_market/bloc/category_bloc/category_event.dart';
+import 'package:apple_market/bloc/category_bloc/category_state.dart';
 import 'package:apple_market/model/category.dart';
 import 'package:apple_market/widget/cashed_image.dart';
 import 'package:flutter/material.dart';

@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     sliver: SliverToBoxAdapter(child: _getHotestProductText()),
                   ),
-                  /*
+
                   state.responseProductHotest.fold(
                     (error) {
                       return SliverToBoxAdapter(child: Text(error));
@@ -143,7 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
-                  */
                 ],
               );
             }

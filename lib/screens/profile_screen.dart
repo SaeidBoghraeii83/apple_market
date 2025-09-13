@@ -139,7 +139,7 @@ Widget _getItemProfile() {
         crossAxisCount: 4,
         crossAxisSpacing: 1,
         mainAxisSpacing: 40,
-        mainAxisExtent: 110,
+        mainAxisExtent: 120,
       ),
       itemBuilder: (context, index) {
         final item = items[index];
