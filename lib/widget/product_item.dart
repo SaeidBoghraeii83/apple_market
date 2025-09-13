@@ -6,10 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductItem extends StatelessWidget {
+class ProductItem extends StatefulWidget {
   final List<Product> listProduct;
   const ProductItem({super.key, required this.listProduct});
 
+  @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +22,7 @@ class ProductItem extends StatelessWidget {
         SizedBox(
           height: 200.h,
           child: ListView.builder(
-            itemCount: listProduct.length,
+            itemCount: widget.listProduct.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Padding(
@@ -57,7 +62,8 @@ class ProductItem extends StatelessWidget {
                                   height: 100.h,
                                   width: 90.w,
                                   child: CashedImage(
-                                    imageUrl: listProduct[index].thumbnail,
+                                    imageUrl:
+                                        widget.listProduct[index].thumbnail,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -82,7 +88,7 @@ class ProductItem extends StatelessWidget {
                                   ),
                                   child: Text(
                                     textAlign: TextAlign.center,
-                                    '${listProduct[index].persent!.round().toString()} ٪',
+                                    '${widget.listProduct[index].persent!.round().toString()} ٪',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'SM',
@@ -99,7 +105,7 @@ class ProductItem extends StatelessWidget {
                                   textDirection: TextDirection.rtl,
                                   child: Text(
                                     maxLines: 1,
-                                    listProduct[index].name,
+                                    widget.listProduct[index].name,
                                     style: TextStyle(
                                       overflow: TextOverflow.clip,
                                       fontFamily: 'SM',
@@ -142,7 +148,7 @@ class ProductItem extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  listProduct[index].price.toString(),
+                                  widget.listProduct[index].price.toString(),
                                   style: TextStyle(
                                     overflow: TextOverflow.ellipsis,
                                     decoration: TextDecoration.lineThrough,
@@ -154,7 +160,8 @@ class ProductItem extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  listProduct[index].discountPrice.toString(),
+                                  widget.listProduct[index].discountPrice
+                                      .toString(),
                                   style: TextStyle(
                                     overflow: TextOverflow.ellipsis,
                                     color: Colors.white,

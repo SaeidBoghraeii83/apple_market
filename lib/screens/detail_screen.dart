@@ -1,39 +1,59 @@
+import 'package:apple_market/bloc/product_bloc/product_bloc.dart';
+import 'package:apple_market/bloc/product_bloc/product_event.dart';
+import 'package:apple_market/bloc/product_bloc/product_state.dart';
+import 'package:apple_market/model/gallery.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<ProductBloc>(context).add(RequestProductEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffEEEEEE),
       body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: 20.w,
-                vertical: 10.h,
-              ),
-              sliver: SliverToBoxAdapter(child: SearchBox()),
-            ),
-            SliverToBoxAdapter(child: DetailContainer()),
-            SliverPadding(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: 20.w,
-                vertical: 5.h,
-              ),
-              sliver: SliverToBoxAdapter(child: ColorItemDetail()),
-            ),
-            SliverPadding(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: 20.w,
-                vertical: 5.h,
-              ),
-              sliver: SliverToBoxAdapter(child: StorageItemDetail()),
-            ),
-          ],
+        child: BlocBuilder<ProductBloc, ProductState>(
+          builder: (context, state) {
+            return CustomScrollView(
+              slivers: [
+                SliverPadding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                    horizontal: 20.w,
+                    vertical: 10.h,
+                  ),
+                  sliver: SliverToBoxAdapter(child: SearchBox()),
+                ),
+                // SliverToBoxAdapter(child: DetailImageContainer()),
+                SliverPadding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                    horizontal: 20.w,
+                    vertical: 5.h,
+                  ),
+                  sliver: SliverToBoxAdapter(child: ColorItemDetail()),
+                ),
+                SliverPadding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                    horizontal: 20.w,
+                    vertical: 5.h,
+                  ),
+                  sliver: SliverToBoxAdapter(child: StorageItemDetail()),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -79,8 +99,9 @@ class SearchBox extends StatelessWidget {
 
 //===================================================
 
-class DetailContainer extends StatelessWidget {
-  const DetailContainer({super.key});
+class DetailImageContainer extends StatelessWidget {
+  final List<Gallery> listGallery;
+  DetailImageContainer({super.key, required this.listGallery});
 
   @override
   Widget build(BuildContext context) {
